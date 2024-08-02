@@ -14,7 +14,7 @@
                 "AWS4-HMAC-SHA256 Credential=ANOTREAL/20210618/us-east-1/s3/aws4_request, SignedHeaders=amz-sdk-invocation-id;host;x-amz-content-sha256;x-amz-date;x-amz-security-token;x-amz-user-agent, Signature=e7eccf4e792113f5f17a50bfd8f1719479e89ba0b476894e6f3dba030dc87f82"
               ],
               "x-amz-user-agent": [
-                "aws-sdk-rust/0.123.test api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0"
+                "aws-sdk-rust/0.123.test ua/0.1 api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0"
               ],
               "x-amz-date": [
                 "20210618T170728Z"

@@ -8,7 +8,7 @@
                         "uri": "https://codecatalyst.global.api.aws/v1/spaces",
                         "headers": {
                             "x-amz-user-agent": [
-                                "aws-sdk-rust/0.123.test api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0"
+                                "aws-sdk-rust/0.123.test ua/0.1 api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0"
                             ],
                             "authorization": [
                                 "Bearer sso_bearer_auth_test"

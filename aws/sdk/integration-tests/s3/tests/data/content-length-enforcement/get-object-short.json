@@ -11,13 +11,13 @@
                                 "aws-sdk-rust/0.123.test os/windows/XPSP3 lang/rust/1.50.0"
                             ],
                             "x-amz-user-agent": [
-                                "aws-sdk-rust/0.123.test api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0"
+                                "aws-sdk-rust/0.123.test ua/0.1 api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0"
                             ],
                             "x-amz-date": [
                                 "20090213T233130Z"
                             ],
                             "authorization": [
-                                "AWS4-HMAC-SHA256 Credential=ANOTREAL/20090213/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=62edebbcadc277f9482344af1467f4a48e9fe852585382f3a50c141421697c6b"
+                                "AWS4-HMAC-SHA256 Credential=ANOTREAL/20090213/us-east-1/s3/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=85c103f749601766c7293837f9c52dcb69ef1810e5748588a77bba869ec359bd"
                             ],
                             "x-amz-content-sha256": [
                                 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"

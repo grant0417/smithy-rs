@@ -16,7 +16,7 @@ async fn test_signer() {
         .header("authorization",
                     "AWS4-HMAC-SHA256 Credential=ANOTREAL/20090213/us-east-1/s3/aws4_request, \
                     SignedHeaders=host;x-amz-account-id;x-amz-content-sha256;x-amz-date;x-amz-user-agent, \
-                    Signature=0102a74cb220f8445c4efada17660572ff813e07b524032ec831e8c2514be903")
+                    Signature=f06da441c317f05e69090c87472b4b62cabf27578c4e0178797f6eb09f148da9")
             .uri("https://test-bucket.s3-control.us-east-1.amazonaws.com/v20180820/accesspoint")
             .body(SdkBody::empty())
             .unwrap(),

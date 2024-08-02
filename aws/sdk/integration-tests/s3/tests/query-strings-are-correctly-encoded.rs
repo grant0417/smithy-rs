@@ -45,7 +45,7 @@ async fn test_s3_signer_query_string_with_all_valid_chars() {
 
     // This is a snapshot test taken from a known working test result
     let snapshot_signature =
-        "Signature=9a931d20606f93fa4e5553602866a9b5ccac2cd42b54ae5a4b17e4614fb443ce";
+        "Signature=24e96936d629060869be033141491ee0e87ed58efb13ab847deb6240e2e03a3a";
     assert!(
         auth_header
             .contains(snapshot_signature),

@@ -41,7 +41,7 @@ fn new_checksum_validated_response_test_connection(
             )
             .header(
                 "x-amz-user-agent",
-                "aws-sdk-rust/0.123.test api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0",
+                "aws-sdk-rust/0.123.test ua/0.1 api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0",
             )
             .header("authorization", "not-relevant")
             .uri(Uri::from_static(

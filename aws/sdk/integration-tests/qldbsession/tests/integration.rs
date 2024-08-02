@@ -20,7 +20,7 @@ async fn signv4_use_correct_service_name() {
             .header("content-type", "application/x-amz-json-1.0")
             .header("x-amz-target", "QLDBSession.SendCommand")
             .header("content-length", "49")
-            .header("authorization", "AWS4-HMAC-SHA256 Credential=ANOTREAL/20090213/us-east-1/qldb/aws4_request, SignedHeaders=content-length;content-type;host;x-amz-date;x-amz-target;x-amz-user-agent, Signature=9a07c60550504d015fb9a2b0f1b175a4d906651f9dd4ee44bebb32a802d03815")
+            .header("authorization", "AWS4-HMAC-SHA256 Credential=ANOTREAL/20090213/us-east-1/qldb/aws4_request, SignedHeaders=content-length;content-type;host;x-amz-date;x-amz-target;x-amz-user-agent, Signature=389bd9e7748fed1dd89b8a2e925baa76ea3961e50aee075167d7a9ecb6f6accd")
             // qldbsession uses the signing name 'qldb' in signature _________________________^^^^
             .header("x-amz-date", "20090213T233130Z")
             .header("user-agent", "aws-sdk-rust/0.123.test os/windows/XPSP3 lang/rust/1.50.0")

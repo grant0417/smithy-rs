@@ -52,10 +52,10 @@ async fn generate_random() {
             .header("content-type", "application/x-amz-json-1.1")
             .header("x-amz-target", "TrentService.GenerateRandom")
             .header("content-length", "20")
-            .header("authorization", "AWS4-HMAC-SHA256 Credential=ANOTREAL/20090213/us-east-1/kms/aws4_request, SignedHeaders=content-length;content-type;host;x-amz-date;x-amz-target;x-amz-user-agent, Signature=53dcf70f6f852cb576185dcabef5aaa3d068704cf1b7ea7dc644efeaa46674d7")
+            .header("authorization", "AWS4-HMAC-SHA256 Credential=ANOTREAL/20090213/us-east-1/kms/aws4_request, SignedHeaders=content-length;content-type;host;x-amz-date;x-amz-target;x-amz-user-agent, Signature=18e508940ac75be8a34d1e0d15285cb852caeb31ab30fbfa77f51848223209d7")
             .header("x-amz-date", "20090213T233130Z")
             .header("user-agent", "aws-sdk-rust/0.123.test os/windows/XPSP3 lang/rust/1.50.0")
-            .header("x-amz-user-agent", "aws-sdk-rust/0.123.test api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0")
+            .header("x-amz-user-agent", "aws-sdk-rust/0.123.test ua/0.1 api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0")
             .uri(Uri::from_static("https://kms.us-east-1.amazonaws.com/"))
             .body(SdkBody::from(r#"{"NumberOfBytes":64}"#)).unwrap(),
         http::Response::builder()
@@ -127,7 +127,7 @@ async fn generate_random_keystore_not_found() {
             .header("authorization", "AWS4-HMAC-SHA256 Credential=ANOTREAL/20090213/us-east-1/kms/aws4_request, SignedHeaders=content-length;content-type;host;x-amz-target, Signature=ffef92c6b75d66cc511daa896eb4a085ec053a2592e17d1f22ecaf167f2fa4bb")
             .header("x-amz-date", "20090213T233130Z")
             .header("user-agent", "aws-sdk-rust/0.123.test os/windows/XPSP3 lang/rust/1.50.0")
-            .header("x-amz-user-agent", "aws-sdk-rust/0.123.test api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0")
+            .header("x-amz-user-agent", "aws-sdk-rust/0.123.test ua/0.1 api/test-service/0.123 os/windows/XPSP3 lang/rust/1.50.0")
             .uri(Uri::from_static("https://kms.us-east-1.amazonaws.com/"))
             .body(SdkBody::from(r#"{"NumberOfBytes":64,"CustomKeyStoreId":"does not exist"}"#)).unwrap(),
         http::Response::builder()
