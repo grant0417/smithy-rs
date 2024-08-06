@@ -62,6 +62,29 @@ interface ModuleDocProvider {
     fun docsWriter(module: RustModule.LeafModule): Writable?
 }
 
+open class RustCrate(
+    fileManifest: FileManifest,
+    private val symbolProvider: RustSymbolProvider,
+    coreCodegenConfig: CoreCodegenConfig,
+    moduleDocProvider: ModuleDocProvider,
+): BasicRustCrate(fileManifest, symbolProvider, coreCodegenConfig, moduleDocProvider) {
+    /**
+     * Write into the module that this shape is [locatedIn]
+     */
+    fun useShapeWriter(
+        shape: Shape,
+        f: Writable,
+    ) {
+        val module = symbolProvider.toSymbol(shape).module()
+        check(!module.isInline()) {
+            "Cannot use useShapeWriter with inline modules—use [RustWriter.withInlineModule] instead"
+        }
+        withModule(symbolProvider.toSymbol(shape).module(), f)
+    }
+
+}
+
+
 /**
  * RustCrate abstraction.
  *
@@ -79,7 +102,7 @@ interface ModuleDocProvider {
  *    shape locations are determined.
  * 2. [finalize]: Write the crate out to the file system, generating a lib.rs and Cargo.toml
  */
-open class RustCrate(
+open class BasicRustCrate(
     fileManifest: FileManifest,
     private val symbolProvider: SymbolProvider,
     coreCodegenConfig: CoreCodegenConfig,
@@ -91,19 +114,6 @@ open class RustCrate(
     // used to ensure we never create accidentally discard docs / incorrectly create modules with incorrect visibility
     private var duplicateModuleWarningSystem: MutableMap<String, RustModule.LeafModule> = mutableMapOf()
 
-    /**
-     * Write into the module that this shape is [locatedIn]
-     */
-    fun useShapeWriter(
-        shape: Shape,
-        f: Writable,
-    ) {
-        val module = symbolProvider.toSymbol(shape).module()
-        check(!module.isInline()) {
-            "Cannot use useShapeWriter with inline modules—use [RustWriter.withInlineModule] instead"
-        }
-        withModule(symbolProvider.toSymbol(shape).module(), f)
-    }
 
     /**
      * Write directly into lib.rs
@@ -185,7 +195,7 @@ open class RustCrate(
     fun withModule(
         module: RustModule,
         moduleWriter: Writable,
-    ): RustCrate {
+    ) {
         when (module) {
             is RustModule.LibRs -> lib { moduleWriter(this) }
             is RustModule.LeafModule -> {
@@ -210,7 +220,7 @@ open class RustCrate(
                 }
             }
         }
-        return this
+        //return this
     }
 
     /**
@@ -219,7 +229,7 @@ open class RustCrate(
     fun moduleFor(
         shape: Shape,
         moduleWriter: Writable,
-    ): RustCrate = withModule((symbolProvider as RustSymbolProvider).moduleForShape(shape), moduleWriter)
+    ) = withModule((symbolProvider as RustSymbolProvider).moduleForShape(shape), moduleWriter)
 
     /**
      * Create a new file directly
