@@ -20,6 +20,7 @@ use std::env;
 use std::fmt::Write;
 use std::fs;
 use std::path::{Path, PathBuf};
+use time::macros::datetime;
 use time::OffsetDateTime;
 
 pub const EXAMPLE_ENTRY: &str = r#"# Example changelog entry, Markdown with YAML front matter
@@ -91,7 +92,9 @@ pub struct RenderArgs {
 }
 
 pub fn subcommand_render(args: &RenderArgs) -> Result<()> {
-    let now = args.date_override.unwrap_or_else(OffsetDateTime::now_utc);
+    let now = args
+        .date_override
+        .unwrap_or_else(|| datetime!(2024-10-09 0:00 UTC));
 
     let current_dir = env::current_dir()?;
     let repo_root: PathBuf = find_git_repository_root(
