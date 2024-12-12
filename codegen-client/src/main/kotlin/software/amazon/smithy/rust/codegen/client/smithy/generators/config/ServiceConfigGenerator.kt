@@ -351,6 +351,7 @@ class ServiceConfigGenerator(
                 /// ## Examples
                 ///
                 /// Set the behavior major version to `latest`. This is equivalent to enabling the `behavior-version-latest` cargo feature.
+                ///
                 /// ```no_run
                 /// use $moduleUseName::config::BehaviorVersion;
                 ///
@@ -362,6 +363,7 @@ class ServiceConfigGenerator(
                 /// ```
                 ///
                 /// Customizing behavior major version:
+                ///
                 /// ```no_run
                 /// use $moduleUseName::config::BehaviorVersion;
                 ///
